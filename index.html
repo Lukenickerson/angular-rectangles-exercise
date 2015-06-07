@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Angular Rectangles Exercise by Luke Nickerson</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+	<link href='assets/css/rectangles.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<header>
+		<h1>Angular Rectangles Exercise</h1>
+	</header>
+	
+	<main ng-app="rectanglesExercise">
+
+		<section id="display" ng-controller="DisplayController">
+			<div class="label origin">(0,0)</div>
+			<div class="label xAxis">x</div>
+			<div class="label yAxis">y</div>
+			<div
+				ng-repeat="rect in rectangles track by $index"
+				class="rectangle rectangle{{$index + 1}}" 
+				ng-style="getRectangleDisplayStyle(rect)"
+				>
+				<span class="name">{{rect.name}}</span>
+			</div>
+			<div class="vertices">
+				<div ng-repeat="vertexName in allVertexNames track by $index"
+					ng-style="getVertexDisplayStyle($index)"
+					>
+					<div class="vertexName"
+						ng-style="getVertexNameDisplayStyle($index)">
+						{{vertexName}}
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section id="operations" ng-controller="OperationsController">
+			<ul class="operationsList">
+				<li>
+					Intersection: 
+					<span class="op{{isIntersecting() ? 'Yes' : 'No'}}">
+						{{isIntersecting() ? 'Yes' : 'No'}}
+					</span>
+				</li>
+				<li>Containment: 
+					<span class="op{{isContained() ? 'Yes' : 'No'}}">
+						{{isContained() ? 'Yes' : 'No'}}
+					</span>
+				</li>
+				<li>
+					Adjacency:
+					<span class="op{{isAdjacent() ? 'Yes' : 'No'}}">
+						{{isAdjacent() ? 'Yes' : 'No'}}
+					</span>
+				</li>
+			</ul>
+		</section>
+		
+		<section id="examples" ng-controller="ExamplesController">
+			<h1>Tests</h1>
+			<button type="button" 
+				ng-click="randomize()">Randomize</button>
+			<button type="button"
+				ng-click="intersect()">Intersect</button>
+			<button type="button"
+				ng-click="contain()">Contain</button>
+			<button type="button"
+				ng-click="adjacent()">Move Adjacent</button>		
+		</section>	
+		
+		<section id="rectangleInterface" ng-controller="RectangleInterfaceController">
+			<div class="rectangle{{$index + 1}}" 
+				ng-repeat="rect in rectangles track by $index">
+				<h1>Rectangle {{$index + 1}}</h1>
+				<ul class="vertices">
+					<li ng-repeat="vertex in vertexIndexArray track by $index">
+						<span class="vertexName">{{rect.vertexNames[$index]}}</span>
+						<label for="rect{{$parent.$index}}_x{{$index}}">x</label>
+						<input type="number" 
+							ng-model="rect.vertex[$index].x"
+							ng-model-options="{ getterSetter: true }"
+							id="rect{{$parent.$index}}_x{{$index}}" 
+							min="0" max="{{displaySize.x}}"
+							/>
+						<label for="rect{{$parent.$index}}_y{{$index}}">y</label>
+						<input type="number" 
+							ng-model="rect.vertex[$index].y"
+							ng-model-options="{ getterSetter: true }"
+							id="rect{{$parent.$index}}_y{{$index}}"
+							min="0" max="{{displaySize.y}}"
+							/>
+					</li>
+				</ul>
+				<ul class="measurements">
+					<li>Area = {{rect.getArea() | number}}</li>
+					<li>Perimeter = {{rect.getPerimeter() | number}}<li>
+					<li>Diagonal = {{rect.getDiagonal() | number:1}}</li>
+				</div>				
+			</div>
+		</section>
+
+	</main>
+	
+	<footer>
+		<p>
+			An HTML5/Angular/JavaScript/UI exercise by 
+			<a href="http://lukenickerson.com">Luke Nickerson</a>
+		</p>
+		<p><a href="#!">Available on GitHub</a> | &copy; 2015</p>
+	</footer>
+	
+	<div id="scripts">
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script src="app/libs/coords.js"></script>
+		<script src="app/libs/rectangle.js"></script>
+		<script src="app/app.js"></script>
+		<script src="app/controllers.js"></script>
+	</div>
+</body>
+</html>
