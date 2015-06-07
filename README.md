@@ -4,9 +4,10 @@
 Analyze two rectangles and determine features -- 
 intersection, containment, adjacency -- that exist among them.
 * Showcases HTML5, JavaScript, Angular JS
-* Unique design and UI
+* Unique, responsive design and user interface
 
 ### How to Use
+URL: http://lukenickerson.github.io/angular-rectangles-exercise/
 * Click one of the 4 buttons to adjust the rectangles with some randomness
 * Modify the x,y values for individual vertices
 
