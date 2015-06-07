@@ -51,6 +51,7 @@ header {
 }
 	header h1 { 
 		margin: 0;
+		text-shadow: 0 0 1em white;
 	}
 main {
 	width: 75%;
@@ -58,7 +59,7 @@ main {
 	margin: 0 auto;
 	padding: 2em;
 	border: solid 1px rgba(0,0,0,0.25); /* #013c67; */
-	box-shadow: 0 1em 2em rgba(0,0,0,0.2);
+	box-shadow: 0 1em 2em rgba(0,0,0,0.2), 0 0 1em rgba(0,0,0,0.1);
 	background-color: #d2e4f1; 
 	background: linear-gradient(to bottom, #fafcfe 0%, #d2e4f1 100%);
 	border-radius: 0.5em;
@@ -107,9 +108,9 @@ main {
 		height: 50px;
 		border-width: 1px;
 		border-style: solid;
-		transition: ease-in 0.1s all;
-		-moz-transition: ease-in 0.1s all;
-		-webkit-transition: ease-in 0.1s all;
+		transition: ease-in 0.2s all;
+		-moz-transition: ease-in 0.2s all;
+		-webkit-transition: ease-in 0.2s all;
 	}
 		#display .rectangle .name {
 			opacity: 0.0;
@@ -129,9 +130,9 @@ main {
 		background-color: #013C67;
 		opacity: 0.1;
 		border-radius: 0.1em;
-		transition: ease-in 0.2s all;
-		-moz-transition: ease-in 0.2s all;
-		-webkit-transition: ease-in 0.2s all;
+		transition: ease-in 0.1s all;
+		-moz-transition: ease-in 0.1s all;
+		-webkit-transition: ease-in 0.1s all;
 		cursor: help;
 	}
 	#display .vertices > div:hover {
@@ -164,7 +165,7 @@ main {
 		font-size: 120%;
 	}
 	.opYes {
-		color: #013C67;
+		color: rgb(54,187,173); /* #013C67; */
 		font-weight: bold;
 	}
 	.opNo {

@@ -18,8 +18,8 @@ var app = angular.module(
 .run(function($rootScope){
 	// Define the two rectangles in the root
 	$rootScope.rectangles = [
-		new Rectangle(100, 100, 260, 170, ["A","B","C","D"])
-		,new Rectangle(10, 10, 130, 130, ["E", "F", "G", "H"])
+		new Rectangle(100, 70, 240, 140, ["A","B","C","D"])
+		,new Rectangle(20, 20, 130, 100, ["E", "F", "G", "H"])
 	];
 	
 	// Extend the basic rectangle functionality

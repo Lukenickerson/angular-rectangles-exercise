@@ -38,15 +38,17 @@ angular.module("rectanglesExercise.controllers", [])
 			,"height" 	: rect.getWidth() + "px"
 		};
 	}
+	// Helper function to get coordinates based on an index of all 8 vertices
 	var	getCoordsByAllVertexIndex = function(vertexIndex){
 		var rectangleIndex = Math.floor(vertexIndex/4);
 		vertexIndex = vertexIndex % 4;
 		return $scope.rectangles[rectangleIndex].getVertex(vertexIndex);	
 	}
+	// Get the style for the vertex display
 	$scope.getVertexDisplayStyle = function(vertexIndex){
 		var coords = getCoordsByAllVertexIndex(vertexIndex);
 		var halfVertexSize = $scope.vertexDisplaySize / 2;
-		var fontSize = $scope.vertexDisplaySize * 0.7;
+		var fontSize = $scope.vertexDisplaySize * 0.85;
 		return {
 			"top"		: (coords.y - halfVertexSize) + "px"
 			,"left"		: (coords.x - halfVertexSize) + "px"
@@ -58,7 +60,7 @@ angular.module("rectanglesExercise.controllers", [])
 	}
 	$scope.getVertexNameDisplayStyle = function(vertexIndex){
 		var coords = getCoordsByAllVertexIndex(vertexIndex);
-		var emSize = 16;
+		var emSize = 18;
 		return {
 			"top"		: (coords.y - emSize) + "px"
 			,"left"		: (coords.x - emSize) + "px"
